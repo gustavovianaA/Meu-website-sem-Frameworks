@@ -11,3 +11,5 @@ if (isset($_GET['lang'])) {
 } else {
     $language = 'pt-br';
 }
+
+

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GVA</title>
-    <link rel='stylesheet' type='text/css' href='style.css'>
+    <link rel='stylesheet' type='text/css' href='style/style.css'>
 </head>
 
 <body style='margin:0;padding:0'>
@@ -14,13 +14,13 @@
             
         <?php if($language === 'pt-br'): ?> 
             <ul>
-                <li>Home</li>
+                <li><a href='/gustavovianaalencar/index.php'>Home</a></li>
                 <li>Artigos</li>
                 <li>Sobre</li>
             </ul>
         <?php elseif($language === 'eng'): ?>
             <ul>
-                <li>Home</li>
+                <li><a href='/gustavovianaalencar/index.php'>Home</a></li>
                 <li>Articles</li>
                 <li>About</li>
             </ul>
