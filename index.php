@@ -4,21 +4,13 @@ require_once('includes/header.php')
 ?>
 
 <div id='main-holder' style='width:90%;display: flex;margin: 0 auto;'>
-    <aside style='width:20%; margin: 0;background-color: #000; color: #fff'>
-        <?php if ($language === 'pt-br') : ?>
-            <ul>
-                <li><a href='articles/index.php?art=matematica&lang=pt-br'>Matemática</a></li>
-            </ul>
-        <?php elseif ($language === 'eng') : ?>
-            <ul>
-                <li><a href='articles/index.php?art=mathematics&lang=eng'>Mathematics</a></li>
-            </ul>
-        <?php endif; ?>
-    </aside>
+
+    <?php require_once('includes/sidebar.php') ?>
+
     <div id='main-content'>
-        
+
         <h1>Gustavo Viana de Alencar</h1>
-        
+
         <?php if ($language === 'pt-br') : ?>
             <h3>Seja bem vindo à minha página web!</h3>
             <p>Sou desenvolvedor web e estudante de matemática.</p>
@@ -28,10 +20,10 @@ require_once('includes/header.php')
         <?php endif ?>
 
     </div>
+
 </div>
 
-<footer>
-</footer>
+<?php require_once('includes/footer.php'); ?>
 
 </body>
 

@@ -1,4 +1,5 @@
 <?php
+$time_start = microtime(true); 
 
 if (isset($_GET['lang'])) {
     if ($_GET['lang'] === 'pt-br') {
