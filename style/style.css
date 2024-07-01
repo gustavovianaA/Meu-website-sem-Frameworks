@@ -1,45 +1,59 @@
-header nav{
+header nav {
     background: gray;
 }
 
-header nav ul , aside ul li{
+header nav ul,
+aside ul li {
     list-style-type: none;
     margin-block-start: 0;
     margin-block-end: 0;
     padding-inline-start: 0;
 }
 
-header nav ul li{
+header nav ul li {
     display: inline-block;
 }
 
-header nav ul li a{
+header nav ul li a {
     text-decoration: none;
     color: #fff;
 }
 
-#header-menu-main , #header-menu-config{
+#header-menu-main,
+#header-menu-config {
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 15px;
     padding-right: 15px;
 }
 
-#header-menu-config{
+#header-menu-config {
     text-align: right;
 }
 
-#header-menu-main ul li a{
+#header-menu-main ul li a {
     border-bottom: 1px solid #fff;
     padding: 10px;
     color: #fff;
     font-size: 1.2em;
-    transition: color 1s, border 1s;     
+    transition: color 1s, border 1s;
 }
 
-#header-menu-main ul li a:hover{
+#header-menu-main ul li a:hover {
     color: #000;
     border-color: #000;
+}
+
+#main-holder {
+    background-color: #fff;
+    width: 90%;
+    display: flex;
+    margin: 0 auto;
+}
+
+aside ul li a {
+    text-decoration: none;
+
 }
 
 #main-content {
@@ -51,12 +65,7 @@ header nav ul li a{
     border-right: 1px solid #000;
 }
 
-aside ul li a{
-    text-decoration: none;
-
-}
-
-footer{
+footer {
     background-color: gray;
     font-weight: bold;
     text-align: center;

@@ -3,7 +3,7 @@ require_once('config.php');
 require_once('includes/header.php')
 ?>
 
-<div id='main-holder' style='width:90%;display: flex;margin: 0 auto;'>
+<div id='main-holder'>
 
     <?php require_once('includes/sidebar.php') ?>
 
@@ -25,6 +25,3 @@ require_once('includes/header.php')
 
 <?php require_once('includes/footer.php'); ?>
 
-</body>
-
-</html>
