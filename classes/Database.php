@@ -6,8 +6,14 @@ class Database extends PDO {
 
 	public function __construct(){
 
-		$this->conn = new PDO("mysql:host=localhost;dbname=gva_wnf", "root", "");
-
+		try{
+		$this->conn = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASSWORD);
+		}catch(PDOException $e){
+			if(ENV === 'development'){
+				echo "<pre>Database connection Error: {$e}</pre>";
+			}
+			die();
+		}
 	}
 
 	private function setParams($statement, $parameters = array()){
