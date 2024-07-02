@@ -2,6 +2,7 @@
     <?php if ($language === 'pt-br') : ?>
         <ul>
             <li><a href='<?=BASE_URL?>articles/index.php?art=matematica&lang=pt-br'>Matemática</a></li>
+            <li><a href='<?=BASE_URL?>articles/index.php?art=revisaophp&lang=pt-br'>Revisão PHP</a></li>
         </ul>
     <?php elseif ($language === 'eng') : ?>
         <ul>
