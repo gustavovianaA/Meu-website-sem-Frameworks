@@ -51,9 +51,27 @@ header nav ul li a {
     margin: 0 auto;
 }
 
+aside {
+    padding-left: 10px;
+    padding-right: 10px; 
+}
+
+aside ul {
+    padding-inline-start: 0;
+}
+
+aside ul li {
+    border: 1px solid #fff;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
 aside ul li a {
     text-decoration: none;
-
+    color: #fff;
 }
 
 #main-content {
