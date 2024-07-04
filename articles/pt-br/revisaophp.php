@@ -1,5 +1,6 @@
 <h2>Revisão de PHP</h2>
 <h3>É um script PHP</h3>
+
 <pre>
 function nTopic()
 {
@@ -13,6 +14,18 @@ function nTopic()
 var_dump(true);
 var_dump(false);
 
+//Constantes
+//constantes podem ser acessadas em qualquer lugar do códio
+define('MY_CONST', '<p>essa é minha constante</p>');
+const MY_CONST_2 = '<p>Essa é outra constante</p>';
+
+function testeDeConstantes()
+{
+    echo MY_CONST;
+    echo MY_CONST_2;
+}
+
+testeDeConstantes();
 // ---------------------------------------------- //
 
 //Operador modular
@@ -180,7 +193,7 @@ var_dump(false xor false);
 nTopic();
 
 $day = 17;
-switch($day){
+switch ($day) {
     case 1:
         echo 'one';
         break;
@@ -207,25 +220,27 @@ nTopic();
 
 //spread operator (...)
 
-function spreadOperator(...$numberss){
-    
+function spreadOperator(...$numberss)
+{
+
     $total = 0;
-    
-    foreach($numberss as $number){
+
+    foreach ($numberss as $number) {
         $total += $number;
     }
 
     return $total;
 }
 
-echo spreadOperator(1,2,3,4,5) . '</br>';
-echo spreadOperator(1,2,3,4,5,6,7,8,9) . '</br>';
+echo spreadOperator(1, 2, 3, 4, 5) . '</br>';
+echo spreadOperator(1, 2, 3, 4, 5, 6, 7, 8, 9) . '</br>';
 
 //escopo no php
 
 $runMe = 'runMe';
 
-function runMe(){
+function runMe()
+{
     //apesar de $runMe ser global, precisamos indicar isso na função
     //é melhor manter as variáveis encapsuladas do que trabalhar dessa forma
     //utilizar se for realmente necessário
@@ -240,13 +255,78 @@ runMe();
 
 $testvar = 'true';
 
-function onefunction(){
+function onefunction()
+{
     $testvar = '<br>false-';
     echo $testvar;
 }
 
 onefunction();
 echo $testvar;
+
+//declaração de tipo
+function sumtypes(int $a, int $b): int
+{
+    return $a + $b;
+}
+
+echo sumtypes(1, 1);
+//echo sumtypes('a',2); erro
+
+//funções anônimas = lambda functions
+
+$square = function ($number) {
+    return $number * $number;
+};
+
+echo "<p>2 ao quadrado é igual à: {$square(2)}</p>";
+//Repare que é possível fazer interpolação de strings com funções anônimas
+
+//Closures
+//usar variáveis locais como se fossem globais em funções anônimas
+
+function createCounter()
+{
+    $count = 0; //local
+
+    $counter = function () use (&$count) {
+        return ++$count; //uso global
+    };
+
+    return $counter;
+}
+
+$counter = createCounter();
+echo $counter() . '--';
+echo $counter() . '--';
+echo $counter() . '--';
+
+//Callback functions : funções sendo passadas como parâmetros
+//exemplo - $arr = array_map(function($number){} , $numbers)
+
+function applyCallback($callback , $value){
+    return $callback($value);
+}
+
+$result = applyCallback(function($number){
+    return $number*2;
+},5);
+
+echo "<p>{$result}</p>";
+
+//Arrow functions
+//tipo de função anônima php > 7.4
+//há algo similar em javascript
+
+$addd = fn ($a,$b) => $a + $b;
+
+// $addd = function ($a,$b) { return $a + $b };
+
+echo "<p>{$addd(1,5)}</p>";
+
+$moneyBr = fn ($number) => 'R$' . number_format($number,2,',','.');
+
+echo "<p>{$moneyBr(8500.5)}</p>";
 </pre>
 
 <h2>Esse é o resultado do script</h2>
@@ -265,6 +345,18 @@ function nTopic()
 var_dump(true);
 var_dump(false);
 
+//Constantes
+//constantes podem ser acessadas em qualquer lugar do códio
+define('MY_CONST', '<p>essa é minha constante</p>');
+const MY_CONST_2 = '<p>Essa é outra constante</p>';
+
+function testeDeConstantes()
+{
+    echo MY_CONST;
+    echo MY_CONST_2;
+}
+
+testeDeConstantes();
 // ---------------------------------------------- //
 
 //Operador modular
@@ -432,7 +524,7 @@ var_dump(false xor false);
 nTopic();
 
 $day = 17;
-switch($day){
+switch ($day) {
     case 1:
         echo 'one';
         break;
@@ -459,25 +551,27 @@ nTopic();
 
 //spread operator (...)
 
-function spreadOperator(...$numberss){
-    
+function spreadOperator(...$numberss)
+{
+
     $total = 0;
-    
-    foreach($numberss as $number){
+
+    foreach ($numberss as $number) {
         $total += $number;
     }
 
     return $total;
 }
 
-echo spreadOperator(1,2,3,4,5) . '</br>';
-echo spreadOperator(1,2,3,4,5,6,7,8,9) . '</br>';
+echo spreadOperator(1, 2, 3, 4, 5) . '</br>';
+echo spreadOperator(1, 2, 3, 4, 5, 6, 7, 8, 9) . '</br>';
 
 //escopo no php
 
 $runMe = 'runMe';
 
-function runMe(){
+function runMe()
+{
     //apesar de $runMe ser global, precisamos indicar isso na função
     //é melhor manter as variáveis encapsuladas do que trabalhar dessa forma
     //utilizar se for realmente necessário
@@ -492,11 +586,76 @@ runMe();
 
 $testvar = 'true';
 
-function onefunction(){
+function onefunction()
+{
     $testvar = '<br>false-';
     echo $testvar;
 }
 
 onefunction();
 echo $testvar;
+
+//declaração de tipo
+function sumtypes(int $a, int $b): int
+{
+    return $a + $b;
+}
+
+echo sumtypes(1, 1);
+//echo sumtypes('a',2); erro
+
+//funções anônimas = lambda functions
+
+$square = function ($number) {
+    return $number * $number;
+};
+
+echo "<p>2 ao quadrado é igual à: {$square(2)}</p>";
+//Repare que é possível fazer interpolação de strings com funções anônimas
+
+//Closures
+//usar variáveis locais como se fossem globais em funções anônimas
+
+function createCounter()
+{
+    $count = 0; //local
+
+    $counter = function () use (&$count) {
+        return ++$count; //uso global
+    };
+
+    return $counter;
+}
+
+$counter = createCounter();
+echo $counter() . '--';
+echo $counter() . '--';
+echo $counter() . '--';
+
+//Callback functions : funções sendo passadas como parâmetros
+//exemplo - $arr = array_map(function($number){} , $numbers)
+
+function applyCallback($callback , $value){
+    return $callback($value);
+}
+
+$result = applyCallback(function($number){
+    return $number*2;
+},5);
+
+echo "<p>{$result}</p>";
+
+//Arrow functions
+//tipo de função anônima php > 7.4
+//há algo similar em javascript
+
+$addd = fn ($a,$b) => $a + $b;
+
+// $addd = function ($a,$b) { return $a + $b };
+
+echo "<p>{$addd(1,5)}</p>";
+
+$moneyBr = fn ($number) => 'R$' . number_format($number,2,',','.');
+
+echo "<p>{$moneyBr(8500.5)}</p>";
 ?>
