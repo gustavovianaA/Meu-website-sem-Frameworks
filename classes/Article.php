@@ -15,11 +15,11 @@ class Article
 
         $results = $sql->select("SELECT * FROM articles WHERE title = :TITLE AND lang = :LANG", array(
             ":TITLE" => $title,
-            "LANG" => $lang
+            ":LANG" => $lang
         ));
 
         if (count($results) > 0) {
-            
+
             if (SELF::checkExists($results[0]['filepath'])) {
                 $this->title = $results[0]['title'];
                 $this->lang = $results[0]['lang'];

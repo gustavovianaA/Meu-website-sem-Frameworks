@@ -11,13 +11,9 @@ CREATE TABLE articles (
 );
 
 INSERT INTO articles (title,lang,filepath)
-VALUES ('matematica','pt-br','pt-br/matematica.php');
-
-INSERT INTO articles (title,lang,filepath)
-VALUES ('mathematics','eng','eng/mathematics.php');
-
-INSERT INTO articles (title,lang,filepath)
-VALUES ('revisaophp','pt-br','pt-br/revisaophp.php');
+VALUES ('matematica','pt-br','pt-br/matematica.php')
+,('mathematics','eng','eng/mathematics.php')
+,('revisaophp','pt-br','pt-br/revisaophp.php');
 
 INSERT INTO articles (title,lang,filepath)
 VALUES ('test','pt-br','pt-br/test.php');
